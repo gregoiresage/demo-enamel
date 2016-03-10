@@ -1,0 +1,22 @@
+{
+  "uuid": "420c0fee-e076-44a9-b952-c85f8bfe6bfa",
+  "shortName": "demo-enamel",
+  "longName": "demo-enamel",
+  "companyName": "Grégoire Sage",
+  "versionLabel": "1.0",
+  "sdkVersion": "3",
+  "targetPlatforms": ["aplite", "basalt", "chalk"],
+  "enableMultiJS": true,
+  "watchapp": {
+    "watchface": false
+  },
+  "appKeys": {
+    "enableBackground": 0,
+    "background": 1,
+    "font_size": 2,
+    "favorite_food": 3
+  },
+  "resources": {
+    "media": []
+  }
+}
