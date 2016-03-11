@@ -10,11 +10,13 @@
   "watchapp": {
     "watchface": false
   },
+  "capabilities" : ["configurable"],
   "appKeys": {
-    "enableBackground": 0,
+    "enable_background": 0,
     "background": 1,
     "font_size": 2,
-    "favorite_food": 3
+    "favorite_food": 3,
+    "email": 10
   },
   "resources": {
     "media": []
