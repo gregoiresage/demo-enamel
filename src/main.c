@@ -16,12 +16,13 @@ static char* mystrcat( char* dest, const char* src )
 }
 
 static void updateDisplay() {
-  if(get_enableBackground()) {
+  if(get_enable_background()) {
     window_set_background_color(window, get_background());
   }
   else {
     window_set_background_color(window,GColorWhite);
   }
+  
   switch(get_font_size()){
     case FONT_SIZE_SMALL : text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_14)); break;
     case FONT_SIZE_NORMAL : text_layer_set_font(text_layer, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD)); break;

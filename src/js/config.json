@@ -1,12 +1,16 @@
 [
+{ 
+  "type": "heading", 
+  "defaultValue": "Enamel Demo" 
+},
 {
   "type": "section",
   "items": [
-    { "type": "heading", "defaultValue": "Enamel Demo" },
+    { "type": "heading", "defaultValue": "Section 1" },
     {
       "type": "toggle",
-      "id": "enableBackground",
-      "appKey": "enableBackground",
+      "id": "enable_background",
+      "appKey": "enable_background",
       "label": "Enable Background"
     },
     {
@@ -57,6 +61,20 @@
           "value": "burgers" 
         }
       ]
+    }
+  ]
+},
+{
+  "type": "section",
+  "items": [
+    {
+      "type": "heading",
+      "defaultValue": "Another section"
+    },
+    {
+      "type": "input",
+      "appKey": "email",
+      "label": "Email Address"
     }
   ]
 },
