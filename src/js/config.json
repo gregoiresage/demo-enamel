@@ -11,7 +11,8 @@
       "type": "toggle",
       "id": "enable_background",
       "appKey": "enable_background",
-      "label": "Enable Background"
+      "label": "Enable Background",
+      "defaultValue" : true
     },
     {
       "type": "color",
@@ -59,6 +60,26 @@
         { 
           "label": "Burgers", 
           "value": "burgers" 
+        }
+      ]
+    },
+    {
+      "type": "radiogroup",
+      "appKey": "favorite_drink",
+      "label": "Favorite Drink",
+      "defaultValue": "coca",
+      "options": [
+        { 
+          "label": "Water", 
+          "value": "water" 
+        },
+        { 
+          "label": "Coca", 
+          "value": "coca" 
+        },
+        { 
+          "label": "Wine", 
+          "value": "wine" 
         }
       ]
     }
