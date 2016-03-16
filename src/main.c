@@ -6,6 +6,7 @@ static Window *window;
 static TextLayer *text_layer_title;
 static TextLayer *text_layer_food;
 static TextLayer *text_layer_drink;
+static Layer *bottom_layer;
 
 static char favorite_food_string[100];
 
@@ -41,7 +42,20 @@ static void updateDisplay() {
   text_layer_set_text(text_layer_drink, get_favorite_drink());
 
   APP_LOG(0, "email is %s", get_email());
+
+  layer_mark_dirty(bottom_layer);
   
+}
+
+void update_proc(Layer *layer, GContext *ctx){
+  GRect bounds = layer_get_bounds(layer);
+
+  bounds.origin.y = bounds.size.h - 30;
+  bounds.size.h = 30;
+  bounds.size.w = get_slider() * bounds.size.w / (SLIDER_PRECISION * 100);
+
+  graphics_context_set_fill_color(ctx, GColorWhite);
+  graphics_fill_rect(ctx, bounds, 0, 0);
 }
 
 static void in_received_handler(DictionaryIterator *iter, void *context) {
@@ -70,6 +84,10 @@ static void window_load(Window *window) {
   text_layer_set_text_alignment(text_layer_drink, GTextAlignmentRight);
   layer_add_child(window_layer, text_layer_get_layer(text_layer_drink));
 
+  bottom_layer = layer_create(bounds);
+  layer_set_update_proc(bottom_layer, update_proc);
+  layer_add_child(window_layer, bottom_layer);
+
   updateDisplay();
 }
 
@@ -77,6 +95,7 @@ static void window_unload(Window *window) {
   text_layer_destroy(text_layer_title);
   text_layer_destroy(text_layer_food);
   text_layer_destroy(text_layer_drink);
+  layer_destroy(bottom_layer);
 }
 
 static void init(void) {

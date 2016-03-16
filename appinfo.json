@@ -17,7 +17,8 @@
     "font_size": 2,
     "favorite_food": 3,
     "favorite_drink": 4,
-    "email": 10
+    "email": 10,
+    "slider":33
   },
   "resources": {
     "media": []
