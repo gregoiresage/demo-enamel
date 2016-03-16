@@ -18,14 +18,14 @@ static char* mystrcat( char* dest, const char* src )
 }
 
 static void updateDisplay() {
-  if(get_enable_background()) {
-    window_set_background_color(window, get_background());
+  if(enamel_get_enable_background()) {
+    window_set_background_color(window, enamel_get_background());
   }
   else {
     window_set_background_color(window,GColorWhite);
   }
 
-  switch(get_font_size()){
+  switch(enamel_get_font_size()){
     case FONT_SIZE_SMALL : text_layer_set_font(text_layer_title, fonts_get_system_font(FONT_KEY_GOTHIC_14)); break;
     case FONT_SIZE_NORMAL : text_layer_set_font(text_layer_title, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD)); break;
     case FONT_SIZE_LARGE : text_layer_set_font(text_layer_title, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD)); break;
@@ -33,15 +33,15 @@ static void updateDisplay() {
 
   favorite_food_string[0] = '\0';
   char *p = favorite_food_string;
-  for(uint16_t i=0; i<get_favorite_food_count(); i++){
-    p = mystrcat(p,get_favorite_food(i));
+  for(uint16_t i=0; i<enamel_get_favorite_food_count(); i++){
+    p = mystrcat(p,enamel_get_favorite_food(i));
     p = mystrcat(p,"\n");
   }
   text_layer_set_text(text_layer_food, favorite_food_string);
 
-  text_layer_set_text(text_layer_drink, get_favorite_drink());
+  text_layer_set_text(text_layer_drink, enamel_get_favorite_drink());
 
-  APP_LOG(0, "email is %s", get_email());
+  APP_LOG(0, "email is %s", enamel_get_email());
 
   layer_mark_dirty(bottom_layer);
   
@@ -52,7 +52,7 @@ void update_proc(Layer *layer, GContext *ctx){
 
   bounds.origin.y = bounds.size.h - 30;
   bounds.size.h = 30;
-  bounds.size.w = get_slider() * bounds.size.w / (SLIDER_PRECISION * 100);
+  bounds.size.w = enamel_get_slider() * bounds.size.w / (SLIDER_PRECISION * 100);
 
   graphics_context_set_fill_color(ctx, GColorWhite);
   graphics_fill_rect(ctx, bounds, 0, 0);
