@@ -103,7 +103,7 @@ static void init(void) {
   enamel_init(0, 0);
 
   // Register our custom receive handler
-  enamel_register_custom_inbox_received(in_received_handler);
+  enamel_app_message_open(0, 0, in_received_handler); 
 
   window = window_create();
   window_set_window_handlers(window, (WindowHandlers) {
