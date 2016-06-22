@@ -1,4 +1,7 @@
 import os.path
+import sys
+
+sys.path.append('node_modules')
 from enamel.enamel import enamel
 
 top = '.'

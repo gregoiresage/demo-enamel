@@ -10,14 +10,14 @@
     {
       "type": "toggle",
       "id": "enable_background",
-      "appKey": "enable_background",
+      "messageKey": "enable_background",
       "label": "Enable Background",
       "defaultValue" : true
     },
     {
       "type": "color",
       "id": "background",
-      "appKey": "background",
+      "messageKey": "background",
       "defaultValue": "FF0000",
       "label": "Background Color",
       "sunlight": true
@@ -25,7 +25,7 @@
     {
       "type": "select",
       "id": "font_size",
-      "appKey": "font_size",
+      "messageKey": "font_size",
       "defaultValue": "1",
       "label": "Text Size",
       "options": [
@@ -45,27 +45,14 @@
     },
     {
       "type": "checkboxgroup",
-      "appKey": "favorite_food",
+      "messageKey": "favoritefood",
       "label": "Favorite Food",
-      "defaultValue": ["sushi", "burgers"],
-      "options": [
-        { 
-          "label": "Sushi", 
-          "value": "sushi" 
-        },
-        { 
-          "label": "Pizza", 
-          "value": "pizza" 
-        },
-        { 
-          "label": "Burgers", 
-          "value": "burgers" 
-        }
-      ]
+      "defaultValue": [true, false, true],
+      "options": ["Sushi", "Pizza", "Burgers"]
     },
     {
       "type": "radiogroup",
-      "appKey": "favorite_drink",
+      "messageKey": "favorite_drink",
       "label": "Favorite Drink",
       "defaultValue": "coca",
       "options": [
@@ -85,7 +72,7 @@
     },
     {
       "type": "slider",
-      "appKey": "slider",
+      "messageKey": "slider",
       "defaultValue": 15,
       "label": "Slider",
       "description": "This is the description for the slider",
@@ -104,7 +91,7 @@
     },
     {
       "type": "input",
-      "appKey": "email",
+      "messageKey": "email",
       "label": "Email Address"
     }
   ]

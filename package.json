@@ -1,0 +1,45 @@
+{
+  "version": "1.0.0",
+  "author": "Grégoire Sage",
+  "private": true,
+  "dependencies": {
+    "enamel": "^1.0.6",
+    "pebble-clay": "^1.0.1"
+  },
+  "keywords": [
+    "pebble-app"
+  ],
+  "pebble": {
+    "sdkVersion": "3",
+    "resources": {
+      "media": []
+    },
+    "projectType": "native",
+    "uuid": "420c0fee-e076-44a9-b952-c85f8bfe6bfa",
+    "messageKeys": [
+      "favoritefood[3]",
+      "font_size",
+      "slider",
+      "email",
+      "favorite_drink",
+      "background",
+      "enable_background"
+    ],
+    "enableMultiJS": true,
+    "displayName": "demo-enamel",
+    "watchapp": {
+      "onlyShownOnCommunication": false,
+      "hiddenApp": false,
+      "watchface": false
+    },
+    "targetPlatforms": [
+      "aplite",
+      "basalt",
+      "chalk"
+    ],
+    "capabilities": [
+      "configurable"
+    ]
+  },
+  "name": "demo-enamel"
+}

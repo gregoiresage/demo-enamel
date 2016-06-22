@@ -1,5 +1,6 @@
 #include <pebble.h>
 
+#include <pebble-events/pebble-events.h>
 #include "enamel.h"
 
 static Window *window;
@@ -25,19 +26,13 @@ static void updateDisplay() {
     window_set_background_color(window,GColorWhite);
   }
 
+  APP_LOG(0, "fontsize is %d", enamel_get_font_size());
+
   switch(enamel_get_font_size()){
     case FONT_SIZE_SMALL : text_layer_set_font(text_layer_title, fonts_get_system_font(FONT_KEY_GOTHIC_14)); break;
     case FONT_SIZE_NORMAL : text_layer_set_font(text_layer_title, fonts_get_system_font(FONT_KEY_GOTHIC_18_BOLD)); break;
     case FONT_SIZE_LARGE : text_layer_set_font(text_layer_title, fonts_get_system_font(FONT_KEY_GOTHIC_28_BOLD)); break;
   }
-
-  favorite_food_string[0] = '\0';
-  char *p = favorite_food_string;
-  for(uint16_t i=0; i<enamel_get_favorite_food_count(); i++){
-    p = mystrcat(p,enamel_get_favorite_food(i));
-    p = mystrcat(p,"\n");
-  }
-  text_layer_set_text(text_layer_food, favorite_food_string);
 
   text_layer_set_text(text_layer_drink, enamel_get_favorite_drink());
 
@@ -56,10 +51,6 @@ void update_proc(Layer *layer, GContext *ctx){
 
   graphics_context_set_fill_color(ctx, GColorWhite);
   graphics_fill_rect(ctx, bounds, 0, 0);
-}
-
-static void in_received_handler(DictionaryIterator *iter, void *context) {
-  updateDisplay();
 }
 
 static void window_load(Window *window) {
@@ -100,10 +91,13 @@ static void window_unload(Window *window) {
 
 static void init(void) {
   // Initialize Enamel to register App Message handlers and restores settings
-  enamel_init(0, 0);
+  enamel_init();
 
   // Register our custom receive handler
-  enamel_app_message_open(0, 0, in_received_handler); 
+  enamel_register_settings_received(updateDisplay);
+
+  // call pebble-events app_message_open function
+  events_app_message_open(); 
 
   window = window_create();
   window_set_window_handlers(window, (WindowHandlers) {
