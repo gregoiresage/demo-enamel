@@ -11,13 +11,6 @@ static Layer *bottom_layer;
 
 static char favorite_food_string[100];
 
-static char* mystrcat( char* dest, const char* src )
-{
-  while (*dest) dest++;
-  while ((*dest++ = *src++));
-  return --dest;
-}
-
 static void updateDisplay() {
   if(enamel_get_enable_background()) {
     window_set_background_color(window, enamel_get_background());
@@ -37,6 +30,7 @@ static void updateDisplay() {
   text_layer_set_text(text_layer_drink, enamel_get_favorite_drink());
 
   APP_LOG(0, "email is %s", enamel_get_email());
+  APP_LOG(0, "flavor is %s", enamel_get_flavor());
 
   layer_mark_dirty(bottom_layer);
   

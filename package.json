@@ -3,7 +3,7 @@
   "author": "Grégoire Sage",
   "private": true,
   "dependencies": {
-    "enamel": "^1.0.6",
+    "enamel": "^1.0.8",
     "pebble-clay": "^1.0.1"
   },
   "keywords": [
@@ -23,7 +23,8 @@
       "email",
       "favorite_drink",
       "background",
-      "enable_background"
+      "enable_background",
+      "flavor"
     ],
     "enableMultiJS": true,
     "displayName": "demo-enamel",

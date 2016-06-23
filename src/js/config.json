@@ -71,6 +71,52 @@
       ]
     },
     {
+      "type": "select",
+      "messageKey": "flavor",
+      "defaultValue": "grape",
+      "label": "Favorite Flavor",
+      "options": [
+        { 
+          "label": "", 
+          "value": "" 
+        },
+        {
+          "label": "Fruits",
+          "value": [
+            { 
+              "label": "Berry",
+              "value": "berry" 
+            },
+            { 
+              "label": "Grape",
+              "value": "grape" 
+            },
+            { 
+              "label": "Banana",
+              "value": "banana" 
+            }
+          ]
+        }, 
+        {
+          "label": "Candy",
+          "value": [
+            { 
+              "label": "Chocolate",
+              "value": "chocolate" 
+            },
+            { 
+              "label": "Cream",
+              "value": "cream" 
+            },
+            { 
+              "label": "Lollipop",
+              "value": "lollipop" 
+            }
+          ]
+        }
+      ]
+    },
+    {
       "type": "slider",
       "messageKey": "slider",
       "defaultValue": 15,
