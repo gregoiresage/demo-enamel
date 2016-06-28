@@ -3,8 +3,7 @@
   "author": "Grégoire Sage",
   "private": true,
   "dependencies": {
-    "enamel": "^1.0.8",
-    "pebble-clay": "^1.0.1"
+    "enamel": "^1.1.0"
   },
   "keywords": [
     "pebble-app"
