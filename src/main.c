@@ -9,9 +9,11 @@ static TextLayer *text_layer_food;
 static TextLayer *text_layer_drink;
 static Layer *bottom_layer;
 
+static EventHandle* s_evt_handler;
+
 static char favorite_food_string[100];
 
-static void updateDisplay() {
+static void updateDisplay(void* context) {
   if(enamel_get_enable_background()) {
     window_set_background_color(window, enamel_get_background());
   }
@@ -73,7 +75,7 @@ static void window_load(Window *window) {
   layer_set_update_proc(bottom_layer, update_proc);
   layer_add_child(window_layer, bottom_layer);
 
-  updateDisplay();
+  updateDisplay(NULL);
 }
 
 static void window_unload(Window *window) {
@@ -88,7 +90,7 @@ static void init(void) {
   enamel_init();
 
   // Register our custom receive handler
-  enamel_register_settings_received(updateDisplay);
+  s_evt_handler = enamel_settings_received_subscribe(updateDisplay,NULL);
 
   // call pebble-events app_message_open function
   events_app_message_open(); 
@@ -105,6 +107,7 @@ static void deinit(void) {
   window_destroy(window);
   
   // Deinit Enamel to unregister App Message handlers and save settings
+  enamel_settings_received_unsubscribe(s_evt_handler);
   enamel_deinit();
 }
 
